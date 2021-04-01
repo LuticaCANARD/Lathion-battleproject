@@ -20,6 +20,8 @@ def matcher (hashmap , AFA , trend , TF , Mod ) :
                         DFEL.append(hashmap[i])
                 else : pass
 
+            if len(DFEL) == 0 :
+                return "전멸"
             if len(ATKL)!= len(DFEL) :
                 if len(ATKL) > len(DFEL) :
                     NA = ATKL
@@ -31,13 +33,14 @@ def matcher (hashmap , AFA , trend , TF , Mod ) :
                 for i in range(len(NB)) :
                     FGA = rd.choice(NA)
                     FGB = rd.choice(NB)
-                    Rad = [[FGA] , [FGB]]
+                    Rad = [FGA , FGB]
                     KU.append(Rad)
                     NA.remove(FGA)
                     NB.remove(FGB)
 
                 for VK in range(max(len(NB),len(NA))) :
                     # 잉여부대 배당
+
                     PR = rd.choice(KU)
                     JV = rd.choice(NA)
                     NA.remove(JV)
@@ -52,7 +55,7 @@ def matcher (hashmap , AFA , trend , TF , Mod ) :
                 for NJ in range(len(NB)) :
                     chedeA = rd.choice(NA)
                     chedeB = rd.choice(NB)
-                    Rad = [[chedeA] , [chedeB]]
+                    Rad = [chedeA , chedeB]
                     KU.append(Rad)
                     NA.remove(chedeA)
                     NB.remove(chedeB)

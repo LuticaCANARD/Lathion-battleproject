@@ -40,3 +40,13 @@ def toex(otp) :
 
 
 print(Battlelistdf)
+
+def repun (BL) :
+    for i in range(len(BL)) :
+        Battlelistdf.iloc[BL[i][0],2] = BL[i][1]
+        
+    Battlelistdf.iloc[:,3] -= 1
+    Battlelistdf.to_excel('output.xlsx')
+    return Battlelistdf
+
+    
